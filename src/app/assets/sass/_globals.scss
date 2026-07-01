@@ -1,0 +1,22 @@
+// Mixins
+@mixin eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-500);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &::before {
+        content: "";
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        background: var(--spot-500);
+        border-radius: 50%;
+    }
+}

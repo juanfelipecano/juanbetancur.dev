@@ -1,0 +1,42 @@
+<section class="summary page-sections" id="top">
+    <div class="summary__halftone-bg">
+        <ng-container *ngTemplateOutlet="HalftoneBackdrop"></ng-container>
+    </div>
+    <div class="summary__content">
+        <div class="summary__role">Frontend developer · Angular<span class="cursor"></span></div>
+        <h1>Juan<br />Betancur<span class="accent">.</span></h1>
+        <p class="summary__role-description">
+            I build web interfaces with <span class="summary__role-description__pill">Angular</span> and obsess over the last
+            5% of polish.
+        </p>
+        <p class="summary__intro">
+            Hi — I'm Juan. I make interfaces that are careful with state, kind to the user, and
+            pleasant to maintain six months later. Lately that means a lot of Angular signals,
+            accessibility, and the small motion details nobody else seems to notice.
+            <a href="#contact">Say hi →</a>
+        </p>
+        <div class="summary__meta-row">
+            <span><span class="summary__meta-row__dot-live"></span>Available for new work</span>
+            <span>Based in Medellín, Colombia</span>
+            <span>Last updated 2026</span>
+        </div>
+    </div>
+</section>
+
+<ng-template #HalftoneBackdrop>
+    <svg class="ht-svg" viewBox="0 0 480 480" aria-hidden="true">
+        <defs>
+            <radialGradient id="hb" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#14110f" stop-opacity="0.85"></stop>
+                <stop offset="60%" stop-color="#14110f" stop-opacity="0.35"></stop>
+                <stop offset="100%" stop-color="#14110f" stop-opacity="0"></stop>
+            </radialGradient>
+            <pattern id="hbd" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+                <circle cx="5" cy="5" r="3.2" fill="#14110f"></circle>
+            </pattern>
+            <mask id="hbm"><rect width="480" height="480" fill="url(#hb)"></rect></mask>
+        </defs>
+        <rect width="480" height="480" fill="url(#hbd)" mask="url(#hbm)"></rect>
+        <circle cx="240" cy="240" r="6" fill="#d94a1f"></circle>
+    </svg>
+</ng-template>

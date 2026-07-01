@@ -1,0 +1,62 @@
+<section class="projects page-sections" id="work">
+    <div class="projects__inner">
+        <div class="projects__eyebrow">Selected work</div>
+        <div class="projects__list">
+
+            @for (project of projects; track project.num) {
+                <div class="projects__item" (click)="selectProject(project)">
+                    <div class="projects__item__num">{{ project.num }}</div>
+
+                    <div class="projects__item__title-block">
+                        <div class="projects__item__title">
+                            <h2>{{ project.title }}</h2>
+                        </div>
+                        <div class="projects__item__blurb">
+                            <p>{{ project.blurb }}</p>
+                        </div>
+                    </div>
+
+                    <div class="projects__item__stack project-stack">
+                        @for (item of project.stack; track item) {
+                            <span class="project-stack__tag">{{ item }}</span>
+                        }
+                    </div>
+
+                    <div class="projects__item__arrow">
+                        →
+                        <span class="projects__item__arrow__year">{{ project.year }}</span>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+
+
+@if (selected()) {
+    <div class="projects-modal__overlay" (click)="closeModal()">
+        <div class="projects-modal__content" (click)="stopPropagation($event)">
+            <div class="projects-modal__content__inner">
+                <div class="projects-modal__num">{{ selected()!.num }}</div>
+                <h2 class="projects-modal__title">{{ selected()!.title }}</h2>
+                <p class="projects-modal__blurb">{{ selected()!.blurb }}</p>
+                <p class="projects-modal__placeholder">
+                    <em>(This is a placeholder. Replace the content in <code>projects.ts</code> with the real write-up — problem, approach, screenshots, links.)</em>
+                </p>
+            </div>
+
+            <div class="projects-modal__stack project-stack">
+                @for (tag of selected()!.stack; track tag) {
+                    <span class="project-stack__tag">{{ tag }}</span>
+                }
+            </div>
+            <div class="projects-modal__actions">
+                <a href="#" class="projects-modal__actions__link">Live ↗</a>
+                <a href="#" class="projects-modal__actions__link">Source ↗</a>
+                <button class="projects-modal__actions__close" (click)="closeModal()">Close x</button>
+            </div>
+        </div>
+    </div>
+}
+

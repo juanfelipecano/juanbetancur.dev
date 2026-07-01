@@ -1,0 +1,97 @@
+@use '../../assets/sass/globals' as *;
+
+.about {
+    &__inner {
+        padding: 0 32px;
+    }
+
+    &__eyebrow {
+        @include eyebrow;
+    }
+
+    &__grid {
+        display: grid;
+        align-items: start;
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+
+        img {
+            width: 100%;
+            max-width: 180px;
+            height: auto;
+            border: 1px solid var(--ink-200);
+        }
+    }
+
+    &__content {
+        &__body {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--ink-700);
+            max-width: 56ch;
+
+            p {
+                margin: 0 0 16px;
+                text-wrap: pretty;
+
+                &:first-child::first-letter {
+                    font-family: var(--font-display);
+                    font-style: italic;
+                    font-weight: 400;
+                    font-size: 3.4em;
+                    line-height: 0.85;
+                    float: left;
+                    margin-right: 8px;
+                    margin-top: 4px;
+                    color: var(--ink-900);
+                }
+            }
+        }
+
+        &__skills {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            h4 {
+                font-family: var(--font-mono);
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                color: var(--ink-500);
+                margin: 0;
+                font-weight: 600;
+            }
+
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+
+                span {
+                    font-family: var(--font-mono);
+                    font-size: 12px;
+                    padding: 3px 10px;
+                    border: 1px solid var(--ink-300);
+                    border-radius: 999px;
+                    color: var(--ink-700);
+                }
+            }
+        }
+    }
+}
+
+@media (width >= 768px) {
+    .about {
+        &__grid {
+            grid-template-columns: 200px 1fr;
+            gap: 32px;
+
+            img {
+                max-width: none;
+            }
+        }
+    }
+}

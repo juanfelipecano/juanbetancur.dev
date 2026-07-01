@@ -1,0 +1,30 @@
+// DS
+@use './app/assets/sass/ds';
+
+// Reset
+@use './app/assets/sass/reset';
+
+// Sections
+.page-sections {
+    padding: 7.5rem 0 6.25rem;
+    border-bottom: 1px solid var(--ink-200);
+    position: relative;
+
+    &:last-of-type {
+        border-bottom: 0;
+    }
+}
+
+@media (width >= 1200px) {
+    .page-sections {
+        padding-left: 8rem;
+        padding-right: 8rem;
+    }
+}
+
+@media (width >= 1536px) {
+    .page-sections {
+        padding-left: 12rem;
+        padding-right: 12rem;
+    }
+}

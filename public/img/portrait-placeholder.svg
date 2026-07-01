@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 280">
+  <defs>
+    <pattern id="ppdots" x="0" y="0" width="3.5" height="3.5" patternUnits="userSpaceOnUse">
+      <circle cx="1.75" cy="1.75" r="1.2" fill="#14110f"></circle>
+    </pattern>
+    <radialGradient id="ppfade" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#14110f" stop-opacity="0.95"></stop>
+      <stop offset="60%" stop-color="#14110f" stop-opacity="0.55"></stop>
+      <stop offset="100%" stop-color="#14110f" stop-opacity="0"></stop>
+    </radialGradient>
+    <mask id="ppmask">
+      <rect width="240" height="280" fill="url(#ppfade)"></rect>
+    </mask>
+  </defs>
+  <rect width="240" height="280" fill="#f4eee2"></rect>
+  <rect width="240" height="280" fill="url(#ppdots)" mask="url(#ppmask)"></rect>
+  
+  <ellipse cx="120" cy="105" rx="38" ry="44" fill="#f4eee2"></ellipse>
+  <path d="M 60 280 Q 60 175 120 165 Q 180 175 180 280 Z" fill="#f4eee2"></path>
+  <circle cx="120" cy="105" r="2.5" fill="#d94a1f"></circle>
+</svg>

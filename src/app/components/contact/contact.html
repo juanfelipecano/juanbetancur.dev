@@ -1,0 +1,48 @@
+<section class="contact page-sections" id="contact">
+    <div class="contact__inner">
+        <div class="contact__eyebrow">Get in touch</div>
+        <div class="contact__grid">
+            <div class="contact__content">
+                <h3>Let's talk.</h3>
+                <p>
+                    I'm currently open to new frontend work — full-time, contract, or
+                    the occasional side project. The quickest way to reach me is email.
+                </p>
+                <p class="contact__email-wrapper">
+                    <a class="contact__email" href="mailto:hello@juanbetancur.dev">hello@juanbetancur.dev</a>
+                </p>
+                <div class="contact__socials">
+                    <a href="#">github<span class="arr">↗</span></a>
+                    <a href="#">linkedin<span class="arr">↗</span></a>
+                    <a href="#">twitter / x<span class="arr">↗</span></a>
+                    <a href="#">read.cv<span class="arr">↗</span></a>
+                </div>
+            </div>
+            <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()">
+                <div class="contact__form-group">
+                    <label for="name">Name</label>
+                    <input id="name" type="text" formControlName="name" placeholder="Your name" />
+                </div>
+                <div class="contact__form-group">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" formControlName="email" placeholder="you@example.com" />
+                </div>
+                <div class="contact__form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" formControlName="message" placeholder="What are we building?"></textarea>
+                </div>
+
+                <div class="contact__form__actions">
+                    <button class="btn" type="submit" [disabled]="form.invalid || sent()">
+                        @if (sent()) {
+                            ✓ Sent
+                        } @else {
+                            Send →
+                        }
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
