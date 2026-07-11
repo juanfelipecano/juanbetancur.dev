@@ -1,6 +1,6 @@
 <header class="header">
     <div class="header__inner">
-        <a class="header__brand" href="#top">
+        <a class="header__brand" (click)="scrollToSection('top')">
             <span class="header__brand__logo">jb</span>
             <span class="header__brand__name"
                 >juanbetancur<span class="header__brand__accent">.dev</span></span
@@ -19,10 +19,9 @@
 
         <div class="header__end" [class.open]="!isMenuClosed()">
             <nav>
-                <a class="header__work">Work</a>
-                <a class="header__about">About</a>
-                <a class="header__notes">Notes</a>
-                <a class="header__contact">Contact</a>
+                <a class="header__work" (click)="scrollToSection('work')">Work</a>
+                <a class="header__about" (click)="scrollToSection('about')">About</a>
+                <a class="header__contact" (click)="scrollToSection('contact')">Contact</a>
             </nav>
             <div class="header__end__right">
                 <a href="https://github.com/juanfelipecano" target="_blank" rel="noopener"
