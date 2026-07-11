@@ -1,10 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Header } from './header';
+import { ScrollToSection } from '../../services';
 
 describe('Header', () => {
     let component: Header;
     let fixture: ComponentFixture<Header>;
+    let scrollToSection: ScrollToSection;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
@@ -13,11 +15,22 @@ describe('Header', () => {
 
         fixture = TestBed.createComponent(Header);
         component = fixture.componentInstance;
+        scrollToSection = TestBed.inject(ScrollToSection);
         await fixture.whenStable();
     });
 
     it('should create', () => {
         expect(component).toBeTruthy();
+    });
+
+    it('should delegate scrolling to the ScrollToSection service and close the menu', () => {
+        const performSpy = vi.spyOn(scrollToSection, 'perform');
+        component['isMenuClosed'].set(false);
+
+        component['scrollToSection']('work');
+
+        expect(performSpy).toHaveBeenCalledWith('work');
+        expect(component['isMenuClosed']()).toBe(true);
     });
 
     it('should start with the menu closed', () => {

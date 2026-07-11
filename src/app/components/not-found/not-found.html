@@ -1,0 +1,65 @@
+<section class="not-found">
+    <div class="not-found__halftone-wash" aria-hidden="true">
+        <ng-container *ngTemplateOutlet="HalftoneWash"></ng-container>
+    </div>
+
+    <h1 class="not-found__sr-title">404 — Page not found</h1>
+
+    <div class="not-found__glyph" aria-hidden="true">
+        <span class="not-found__digit">4</span>
+        <div class="not-found__dot-ring">
+            <ng-container *ngTemplateOutlet="DotRing"></ng-container>
+        </div>
+        <span class="not-found__digit">4</span>
+    </div>
+
+    <div class="not-found__content">
+        <p class="not-found__error-line">
+            // error: dot not found in matrix<span class="not-found__cursor" aria-hidden="true"></span>
+        </p>
+        <p class="not-found__description">
+            One dot slipped out of the pattern. The page it pointed to is gone — but the rest of the
+            site is very much still here.
+        </p>
+        <button class="not-found__home-link" (click)="goToHome()">
+            Back to home <span class="not-found__arrow" aria-hidden="true">→</span>
+        </button>
+    </div>
+</section>
+
+<ng-template #HalftoneWash>
+    <svg class="not-found__halftone-wash__svg" viewBox="0 0 900 300" aria-hidden="true">
+        <defs>
+            <linearGradient id="nf-wash" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%" stop-color="#14110f" stop-opacity="0.5"></stop>
+                <stop offset="100%" stop-color="#14110f" stop-opacity="0"></stop>
+            </linearGradient>
+            <pattern id="nf-wash-dots" x="0" y="0" width="13" height="13" patternUnits="userSpaceOnUse">
+                <circle cx="6.5" cy="6.5" r="3.4" fill="#14110f"></circle>
+            </pattern>
+            <mask id="nf-wash-mask">
+                <rect width="900" height="300" fill="url(#nf-wash)"></rect>
+            </mask>
+        </defs>
+        <rect width="900" height="300" fill="url(#nf-wash-dots)" mask="url(#nf-wash-mask)"></rect>
+    </svg>
+</ng-template>
+
+<ng-template #DotRing>
+    <svg class="not-found__dot-ring__svg" viewBox="0 0 160 200" aria-hidden="true">
+        <g fill="#14110f">
+            <circle cx="80" cy="18" r="7"></circle>
+            <circle cx="116" cy="30" r="7"></circle>
+            <circle class="not-found__dot-ring__accent" cx="139" cy="62" r="7"></circle>
+            <circle cx="146" cy="100" r="7"></circle>
+            <circle cx="139" cy="138" r="7"></circle>
+            <circle cx="116" cy="170" r="7"></circle>
+            <circle cx="80" cy="182" r="7"></circle>
+            <circle cx="44" cy="170" r="7"></circle>
+            <circle cx="21" cy="138" r="7"></circle>
+            <circle cx="14" cy="100" r="7"></circle>
+            <!-- missing dot at (21,62): the gap -->
+            <circle cx="44" cy="30" r="7"></circle>
+        </g>
+    </svg>
+</ng-template>
