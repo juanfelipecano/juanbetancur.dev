@@ -1,11 +1,14 @@
 {
+    "skip-link": "Skip to content",
     "header": {
+        "nav-label": "Primary",
         "logo": {
             "brand": "jb",
             "name": "juanbetancur",
             "accent": ".dev"
         },
         "menu": {
+            "label": "Menu",
             "open": "menu",
             "close": "close x"
         },
@@ -38,6 +41,7 @@
     },
     "projects": {
         "selected-work": "Selected work",
+        "view-project": "View project",
         "modal": {
             "live": "Live ↗",
             "source": "Source ↗",
@@ -66,20 +70,24 @@
         "form": {
             "name": {
                 "label": "Name",
-                "placeholder": "Your name"
+                "placeholder": "Your name",
+                "error": "Please enter your name."
             },
             "email": {
                 "label": "Email",
-                "placeholder": "you@example.com"
+                "placeholder": "you@example.com",
+                "error": "Please enter a valid email address."
             },
             "message": {
                 "label": "Message",
-                "placeholder": "What are we building?"
+                "placeholder": "What are we building?",
+                "error": "Please enter a message."
             },
             "actions": {
                 "sent": "✓ Sent",
                 "send": "Send →"
-            }
+            },
+            "success": "Thanks — your message has been sent."
         }
     },
     "not-found": {

@@ -2,9 +2,9 @@ name: Deploy to Firebase
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
+
 env:
   NODE_VERSION: '26'
 

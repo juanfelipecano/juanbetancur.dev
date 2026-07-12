@@ -10,7 +10,7 @@
         gap: 28px 24px;
     }
 
-    h5 {
+    h2 {
         font-family: var(--font-mono);
         font-size: 11px;
         text-transform: uppercase;
@@ -44,7 +44,8 @@
         gap: 8px;
     }
 
-    a {
+    a,
+    ul button {
         color: var(--night-fg);
         text-decoration: none;
         font-family: var(--font-mono);
@@ -53,6 +54,14 @@
         &:hover {
             color: var(--spot-400);
         }
+    }
+
+    ul button {
+        background: transparent;
+        border: 0;
+        padding: 0;
+        text-align: left;
+        cursor: pointer;
     }
 
     &__bottom {

@@ -1,6 +1,6 @@
 <section class="contact page-sections" id="contact">
     <div class="contact__inner">
-        <div class="contact__eyebrow">{{ 'contact.eyebrow' | translate }}</div>
+        <h2 class="contact__eyebrow">{{ 'contact.eyebrow' | translate }}</h2>
         <div class="contact__grid">
             <div class="contact__content">
                 <h3>{{ 'contact.title' | translate }}</h3>
@@ -34,15 +34,41 @@
             <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()">
                 <div class="contact__form-group">
                     <label for="name">{{ 'contact.form.name.label' | translate }}</label>
-                    <input id="name" type="text" formControlName="name" [placeholder]="'contact.form.name.placeholder' | translate" />
+                    <input
+                        id="name"
+                        type="text"
+                        formControlName="name"
+                        [placeholder]="'contact.form.name.placeholder' | translate"
+                        [attr.aria-invalid]="isInvalid('name')"
+                        [attr.aria-describedby]="isInvalid('name') ? 'name-error' : null" />
+                    @if (isInvalid('name')) {
+                        <p class="contact__form-error" id="name-error">{{ 'contact.form.name.error' | translate }}</p>
+                    }
                 </div>
                 <div class="contact__form-group">
                     <label for="email">{{ 'contact.form.email.label' | translate }}</label>
-                    <input id="email" type="email" formControlName="email" [placeholder]="'contact.form.email.placeholder' | translate" />
+                    <input
+                        id="email"
+                        type="email"
+                        formControlName="email"
+                        [placeholder]="'contact.form.email.placeholder' | translate"
+                        [attr.aria-invalid]="isInvalid('email')"
+                        [attr.aria-describedby]="isInvalid('email') ? 'email-error' : null" />
+                    @if (isInvalid('email')) {
+                        <p class="contact__form-error" id="email-error">{{ 'contact.form.email.error' | translate }}</p>
+                    }
                 </div>
                 <div class="contact__form-group">
                     <label for="message">{{ 'contact.form.message.label' | translate }}</label>
-                    <textarea id="message" formControlName="message" [placeholder]="'contact.form.message.placeholder' | translate"></textarea>
+                    <textarea
+                        id="message"
+                        formControlName="message"
+                        [placeholder]="'contact.form.message.placeholder' | translate"
+                        [attr.aria-invalid]="isInvalid('message')"
+                        [attr.aria-describedby]="isInvalid('message') ? 'message-error' : null"></textarea>
+                    @if (isInvalid('message')) {
+                        <p class="contact__form-error" id="message-error">{{ 'contact.form.message.error' | translate }}</p>
+                    }
                 </div>
 
                 <div class="contact__form__actions">
@@ -54,6 +80,12 @@
                         }
                     </button>
                 </div>
+
+                <p class="contact__form-status" role="status" aria-live="polite">
+                    @if (sent()) {
+                        {{ 'contact.form.success' | translate }}
+                    }
+                </p>
             </form>
         </div>
     </div>

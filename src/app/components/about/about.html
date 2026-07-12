@@ -1,6 +1,6 @@
 <section class="about page-sections" id="about">
     <div class="about__inner">
-        <div class="about__eyebrow">{{ 'about.eyebrow' | translate }}</div>
+        <h2 class="about__eyebrow">{{ 'about.eyebrow' | translate }}</h2>
         <div class="about__grid">
             <img src="./img/portrait-placeholder.svg" alt="Portrait of Juan Betancur (placeholder)" />
             <div class="about__content">
@@ -10,13 +10,13 @@
                     <p>{{ 'about.content.third' | translate }}</p>
                 </div>
                 <div class="about__content__skills">
-                    <h4>{{ 'about.stack' | translate }}</h4>
+                    <h3>{{ 'about.stack' | translate }}</h3>
                     <div class="row">
                         @for (item of stack; track item) {
                             <span>{{ item }}</span>
                         }
                     </div>
-                    <h4>{{ 'about.learning' | translate }}</h4>
+                    <h3>{{ 'about.learning' | translate }}</h3>
                     <div class="row">
                         @for (item of learning; track item) {
                             <span>{{ item }}</span>

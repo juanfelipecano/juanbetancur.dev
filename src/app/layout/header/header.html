@@ -1,13 +1,19 @@
 <header class="header">
     <div class="header__inner">
-        <a class="header__brand" (click)="scrollToSection('top')">
+        <button type="button" class="header__brand" (click)="scrollToSection('top')">
             <span class="header__brand__logo">{{ 'header.logo.brand' | translate }}</span>
             <span class="header__brand__name">
                 {{ 'header.logo.name' | translate }}<span class="header__brand__accent">{{ 'header.logo.accent' | translate }}</span>
             </span>
-        </a>
+        </button>
 
-        <button class="header__menu-toggle" aria-label="Toggle menu" (click)="toggleMenu()">
+        <button
+            type="button"
+            class="header__menu-toggle"
+            [attr.aria-label]="'header.menu.label' | translate"
+            aria-controls="header-menu"
+            [attr.aria-expanded]="!isMenuClosed()"
+            (click)="toggleMenu()">
             <span>
                 @if (isMenuClosed()) {
                     {{ 'header.menu.open' | translate }}
@@ -17,11 +23,11 @@
             </span>
         </button>
 
-        <div class="header__end" [class.open]="!isMenuClosed()">
-            <nav>
-                <a class="header__work" (click)="scrollToSection('work')">{{ 'header.links.work' | translate }}</a>
-                <a class="header__about" (click)="scrollToSection('about')">{{ 'header.links.about' | translate }}</a>
-                <a class="header__contact" (click)="scrollToSection('contact')">{{ 'header.links.contact' | translate }}</a>
+        <div id="header-menu" class="header__end" [class.open]="!isMenuClosed()">
+            <nav [attr.aria-label]="'header.nav-label' | translate">
+                <button type="button" class="header__work" (click)="scrollToSection('work')">{{ 'header.links.work' | translate }}</button>
+                <button type="button" class="header__about" (click)="scrollToSection('about')">{{ 'header.links.about' | translate }}</button>
+                <button type="button" class="header__contact" (click)="scrollToSection('contact')">{{ 'header.links.contact' | translate }}</button>
             </nav>
             <div class="header__end__right">
                 <a href="https://github.com/juanfelipecano" target="_blank" rel="noopener">{{ 'header.external-links.github' | translate }}</a>

@@ -20,6 +20,11 @@ export class Contact {
         message: new FormControl('', { validators: Validators.required, nonNullable: true }),
     });
 
+    protected isInvalid(control: 'name' | 'email' | 'message'): boolean {
+        const field = this.form.controls[control];
+        return field.invalid && field.touched;
+    }
+
     submit() {
         if (this.form.invalid) return;
 

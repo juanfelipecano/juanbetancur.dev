@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, ElementRef, signal, viewChild } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
@@ -8,6 +8,8 @@ import { TranslatePipe } from '@ngx-translate/core';
     styleUrl: './projects.scss',
 })
 export class Projects {
+    private readonly dialogRef = viewChild<ElementRef<HTMLDialogElement>>('projectDialog');
+
     protected readonly projects = [
         {
             num: '01',
@@ -43,13 +45,20 @@ export class Projects {
 
     protected selectProject(project: (typeof this.projects)[number]): void {
         this.selected.set(project);
+        this.dialogRef()?.nativeElement.showModal();
     }
 
     protected closeModal(): void {
+        this.dialogRef()?.nativeElement.close();
+    }
+
+    protected onDialogClose(): void {
         this.selected.set(null);
     }
 
-    protected stopPropagation(event: Event): void {
-        event.stopPropagation();
+    protected onBackdropClick(event: MouseEvent): void {
+        if (event.target === this.dialogRef()?.nativeElement) {
+            this.closeModal();
+        }
     }
 }

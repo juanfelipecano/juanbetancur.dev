@@ -1,4 +1,5 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, effect, inject, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -12,9 +13,19 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class App implements OnInit {
     private readonly _translateService = inject(TranslateService);
+    private readonly _document = inject(DOCUMENT);
 
     protected readonly title = signal('juanbetancur.dev');
     private readonly languages = ['en', 'es'];
+
+    constructor() {
+        effect(() => {
+            const lang = this._translateService.currentLang();
+            if (lang) {
+                this._document.documentElement.lang = lang;
+            }
+        });
+    }
 
     public ngOnInit(): void {
         this.configureLanguages();
@@ -30,12 +41,12 @@ export class App implements OnInit {
         const preferredLang = localStorage.getItem('preferred-lang');
 
         if (!preferredLang && browserLang && this.languages.includes(browserLang)) {
-            this._translateService.use(browserLang);
+            this._translateService.use(browserLang).subscribe();
             return;
         }
 
         if (preferredLang) {
-            this._translateService.use(preferredLang);
+            this._translateService.use(preferredLang).subscribe();
         }
     }
 }

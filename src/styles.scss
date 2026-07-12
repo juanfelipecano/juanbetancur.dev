@@ -4,6 +4,45 @@
 // Reset
 @use './app/assets/sass/reset';
 
+// Visible keyboard focus for every interactive element (WCAG 2.4.7).
+:focus-visible {
+    outline: 2px solid var(--spot-500);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+// Skip link — first tab stop, lets keyboard users bypass the header (WCAG 2.4.1).
+.skip-link {
+    position: absolute;
+    top: -60px;
+    left: 8px;
+    z-index: 100;
+    padding: 10px 16px;
+    background: var(--ink-900);
+    color: var(--paper-50);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: top 120ms ease;
+}
+
+.skip-link:focus {
+    top: 8px;
+}
+
+// Respect users who prefer reduced motion (WCAG 2.3.3).
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 // Sections
 .page-sections {
     padding: 7.5rem 0 6.25rem;

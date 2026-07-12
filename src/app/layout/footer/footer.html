@@ -6,15 +6,15 @@
             </p>
         </div>
         <div class="footer__inner__item">
-            <h5>{{ 'footer.site.title' | translate }}</h5>
+            <h2>{{ 'footer.site.title' | translate }}</h2>
             <ul>
-                <li><a (click)="scrollToSection('work')">{{ 'footer.site.work' | translate }}</a></li>
-                <li><a (click)="scrollToSection('about')">{{ 'footer.site.about' | translate }}</a></li>
-                <li><a (click)="scrollToSection('contact')">{{ 'footer.site.contact' | translate }}</a></li>
+                <li><button type="button" (click)="scrollToSection('work')">{{ 'footer.site.work' | translate }}</button></li>
+                <li><button type="button" (click)="scrollToSection('about')">{{ 'footer.site.about' | translate }}</button></li>
+                <li><button type="button" (click)="scrollToSection('contact')">{{ 'footer.site.contact' | translate }}</button></li>
             </ul>
         </div>
         <div class="footer__inner__item">
-            <h5>{{ 'footer.elsewhere.title' | translate }}</h5>
+            <h2>{{ 'footer.elsewhere.title' | translate }}</h2>
             <ul>
                 <li><a href="https://github.com/juanfelipecano" target="_blank" rel="noopener noreferrer">{{ 'footer.elsewhere.github' | translate }}</a></li>
                 <li><a href="https://linkedin.com/in/juanfelipebetancurcano" target="_blank" rel="noopener noreferrer">{{ 'footer.elsewhere.linkedin' | translate }}</a></li>
