@@ -1,19 +1,21 @@
 <section class="projects page-sections" id="work">
     <div class="projects__inner">
-        <div class="projects__eyebrow">{{ 'projects.selected-work' | translate }}</div>
-        <div class="projects__list">
+        <h2 class="projects__eyebrow">{{ 'projects.selected-work' | translate }}</h2>
+        <ul class="projects__list">
 
             @for (project of projects; track project.num) {
-                <div class="projects__item" (click)="selectProject(project)">
-                    <div class="projects__item__num">{{ project.num }}</div>
+                <li class="projects__item">
+                    <button
+                        type="button"
+                        class="projects__item__hit"
+                        [attr.aria-label]="('projects.view-project' | translate) + ': ' + project.title"
+                        (click)="selectProject(project)"></button>
+
+                    <span class="projects__item__num">{{ project.num }}</span>
 
                     <div class="projects__item__title-block">
-                        <div class="projects__item__title">
-                            <h2>{{ project.title }}</h2>
-                        </div>
-                        <div class="projects__item__blurb">
-                            <p>{{ project.blurb }}</p>
-                        </div>
+                        <h3 class="projects__item__title">{{ project.title }}</h3>
+                        <p class="projects__item__blurb">{{ project.blurb }}</p>
                     </div>
 
                     <div class="projects__item__stack project-stack">
@@ -22,41 +24,44 @@
                         }
                     </div>
 
-                    <div class="projects__item__arrow">
+                    <div class="projects__item__arrow" aria-hidden="true">
                         →
                         <span class="projects__item__arrow__year">{{ project.year }}</span>
                     </div>
-                </div>
+                </li>
             }
 
-        </div>
+        </ul>
     </div>
 </section>
 
-
-@if (selected()) {
-    <div class="projects-modal__overlay" (click)="closeModal()">
-        <div class="projects-modal__content" (click)="stopPropagation($event)">
+<dialog
+    #projectDialog
+    class="projects-modal"
+    aria-labelledby="project-modal-title"
+    (click)="onBackdropClick($event)"
+    (close)="onDialogClose()">
+    @if (selected(); as project) {
+        <div class="projects-modal__content">
             <div class="projects-modal__content__inner">
-                <div class="projects-modal__num">{{ selected()!.num }}</div>
-                <h2 class="projects-modal__title">{{ selected()!.title }}</h2>
-                <p class="projects-modal__blurb">{{ selected()!.blurb }}</p>
+                <div class="projects-modal__num">{{ project.num }}</div>
+                <h2 class="projects-modal__title" id="project-modal-title">{{ project.title }}</h2>
+                <p class="projects-modal__blurb">{{ project.blurb }}</p>
                 <p class="projects-modal__placeholder">
                     <em>(This is a placeholder. Replace the content in <code>projects.ts</code> with the real write-up — problem, approach, screenshots, links.)</em>
                 </p>
             </div>
 
             <div class="projects-modal__stack project-stack">
-                @for (tag of selected()!.stack; track tag) {
+                @for (tag of project.stack; track tag) {
                     <span class="project-stack__tag">{{ tag }}</span>
                 }
             </div>
             <div class="projects-modal__actions">
                 <a href="#" class="projects-modal__actions__link">{{ 'projects.modal.live' | translate }}</a>
                 <a href="#" class="projects-modal__actions__link">{{ 'projects.modal.source' | translate }}</a>
-                <button class="projects-modal__actions__close" (click)="closeModal()">{{ 'projects.modal.close' | translate }}</button>
+                <button type="button" class="projects-modal__actions__close" (click)="closeModal()">{{ 'projects.modal.close' | translate }}</button>
             </div>
         </div>
-    </div>
-}
-
+    }
+</dialog>

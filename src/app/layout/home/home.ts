@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { Header } from '../header/header';
 import { About, Contact, Projects, Summary } from '../../components';
 import { Footer } from '../footer/footer';
@@ -11,7 +12,8 @@ import { Footer } from '../footer/footer';
         Projects,
         About,
         Contact,
-        Footer
+        Footer,
+        TranslatePipe
     ],
     templateUrl: './home.html',
     styleUrl: './home.scss',

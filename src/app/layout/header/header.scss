@@ -22,7 +22,10 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        text-decoration: none;
+        background: transparent;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
 
         &__logo {
             width: 32px;
@@ -92,12 +95,14 @@
         display: flex;
         gap: 28px;
 
-        a {
+        button {
             font-family: var(--font-mono);
             font-size: 13px;
             font-weight: 500;
             color: var(--ink-700);
-            text-decoration: none;
+            background: transparent;
+            border: 0;
+            text-align: left;
             cursor: pointer;
             padding: 4px 0;
             border-bottom: 1.5px solid transparent;
@@ -154,7 +159,8 @@
             flex-direction: column;
             gap: 0;
 
-            a {
+            button {
+                width: 100%;
                 padding: 15px 20px;
                 font-size: 15px;
                 border-bottom: 1px solid var(--rule);
@@ -205,11 +211,6 @@
         &:hover {
             color: var(--spot-500);
         }
-
-        &:focus-visible {
-            outline: 2px solid var(--spot-500);
-            outline-offset: 2px;
-        }
     }
 }
 
@@ -244,7 +245,8 @@
                 flex-direction: row;
                 gap: 28px;
 
-                a {
+                button {
+                    width: auto;
                     padding: 4px 0;
                     font-size: 13px;
                     border-bottom: 1.5px solid transparent;
