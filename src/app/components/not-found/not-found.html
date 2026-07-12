@@ -3,7 +3,7 @@
         <ng-container *ngTemplateOutlet="HalftoneWash"></ng-container>
     </div>
 
-    <h1 class="not-found__sr-title">404 — Page not found</h1>
+    <h1 class="not-found__sr-title">{{ 'not-found.sr-title' | translate }}</h1>
 
     <div class="not-found__glyph" aria-hidden="true">
         <span class="not-found__digit">4</span>
@@ -15,14 +15,13 @@
 
     <div class="not-found__content">
         <p class="not-found__error-line">
-            // error: dot not found in matrix<span class="not-found__cursor" aria-hidden="true"></span>
+            {{ 'not-found.error-line' | translate }}<span class="not-found__cursor" aria-hidden="true"></span>
         </p>
         <p class="not-found__description">
-            One dot slipped out of the pattern. The page it pointed to is gone — but the rest of the
-            site is very much still here.
+            {{ 'not-found.description' | translate }}
         </p>
         <button class="not-found__home-link" (click)="goToHome()">
-            Back to home <span class="not-found__arrow" aria-hidden="true">→</span>
+            {{ 'not-found.home-link' | translate }} <span class="not-found__arrow" aria-hidden="true">→</span>
         </button>
     </div>
 </section>

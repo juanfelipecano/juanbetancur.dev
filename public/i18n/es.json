@@ -1,0 +1,112 @@
+{
+    "header": {
+        "logo": {
+            "brand": "jb",
+            "name": "juanbetancur",
+            "accent": ".dev"
+        },
+        "menu": {
+            "open": "menú",
+            "close": "cerrar x"
+        },
+        "links": {
+            "work": "Proyectos",
+            "about": "Sobre mi",
+            "contact": "Contacto"
+        },
+        "external-links": {
+            "email": "email ↗",
+            "github": "github ↗"
+        },
+        "language": {
+            "switch-to-es": "Cambiar a español",
+            "switch-to-en": "Cambiar a inglés"
+        }
+    },
+    "summary": {
+        "role": "Desarrollador frontend · Angular",
+        "name": "Juan",
+        "lastname": "Betancur",
+        "description": "Desarrollo interfaces web con Angular y me obsesiono con ese último 5 % de pulido.",
+        "intro": "Hola — soy Juan. Diseño interfaces que gestionan bien el estado, son fáciles de usar y siguen siendo agradables de mantener incluso seis meses después. Últimamente, eso implica trabajar mucho con señales de Angular, accesibilidad y esos pequeños detalles de movimiento que nadie más parece notar.",
+        "contact": "Di hola →",
+        "meta-row" : {
+            "available": "Disponible para nuevos proyectos",
+            "location": "Vivo en Medellín, Colombia",
+            "updated": "Última actualización 2026"
+        }
+    },
+    "projects": {
+        "selected-work": "Proyectos",
+        "modal": {
+            "live": "Demo ↗",
+            "source": "Código fuente ↗",
+            "close": "cerrar x"
+        }
+    },
+    "about": {
+        "eyebrow": "Sobre mi",
+        "content": {
+            "first": "Hola - soy Juan. Soy desarrollador front-end y trabajo principalmente con Angular. Me interesan esos detalles de una interfaz que la mayoría de la gente no nota: cómo se coloca el anillo de enfoque, cómo se reordena una lista, si el estado de carga tiene el ritmo adecuado.",
+            "second": "La mayor parte de mi trabajo reciente se ha centrado en la arquitectura de componentes, las señales y la puesta a punto de sistemas de diseño. Me gusta escribir código que otra persona pueda leer sin que yo tenga que estar mirándole por encima del hombro.",
+            "third": "Cuando no estoy frente al teclado, probablemente estoy leyendo, nadando, jugando videojuegos o viendo una película. Si quieres colaborar conmigo o simplemente saludarme, mi correo electrónico está abajo."
+        },
+        "stack": "Stack",
+        "learning": "Aprendiendo"
+    },
+    "contact": {
+        "eyebrow": "Contacto",
+        "title": "Hablemos.",
+        "description": "Actualmente estoy abierto a nuevos proyectos de front-end -ya sea a tiempo completo, por contrato o algún proyecto paralelo ocasional—. La forma más rápida de contactarme es por correo electrónico.",
+        "socials": {
+            "github": "github",
+            "linkedin": "linkedin",
+            "readcv": "Lee mi cv"
+        },
+        "form": {
+            "name": {
+                "label": "Nombre",
+                "placeholder": "Tu nombre"
+            },
+            "email": {
+                "label": "Email",
+                "placeholder": "tu@ejemplo.com"
+            },
+            "message": {
+                "label": "Mensaje",
+                "placeholder": "¿Qué tienes en mente?"
+            },
+            "actions": {
+                "sent": "✓ Enviado",
+                "send": "Enviar →"
+            }
+        }
+    },
+    "not-found": {
+        "sr-title": "404 — Página no encontrada",
+        "error-line": "// error: punto no encontrado en la matriz",
+        "description": "Un punto se salió del patrón. La página a la que apuntabas no existe, pero el resto del sitio sigue ahí.",
+        "home-link": "Volver al sitio"
+    },
+    "footer": {
+        "colophon": {
+            "name": "juanbetancur.dev",
+            "description": "— desarrollador frontend, especialista en Angular, cuidadoso con los detalles. Diseñado a mano, con las fuentes Mono y Fraunces de JetBrains."
+        },
+        "site": {
+            "title": "Sitio",
+            "work": "Proyectos",
+            "about": "Sobre mi",
+            "contact": "Contacto"
+        },
+        "elsewhere": {
+            "title": "En otros sitios",
+            "github": "github ↗",
+            "linkedin": "linkedin ↗"
+        },
+        "bottom": {
+            "copyright": "© 2026 Juan Betancur",
+            "version": "v0.1 · última actualización 2026"
+        }
+    }
+}

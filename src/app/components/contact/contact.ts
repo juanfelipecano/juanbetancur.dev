@@ -1,9 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
     selector: 'jb-contact',
-    imports: [ReactiveFormsModule],
+    imports: [
+        ReactiveFormsModule,
+        TranslatePipe
+    ],
     templateUrl: './contact.html',
     styleUrl: './contact.scss',
 })
