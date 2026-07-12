@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Footer } from './footer';
 import { ScrollToSection } from '../../services';
+import { provideTranslateTesting } from '../../testing/translate-testing.providers';
 
 describe('Footer', () => {
     let component: Footer;
@@ -11,6 +12,7 @@ describe('Footer', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [Footer],
+            providers: [provideTranslateTesting()],
         }).compileComponents();
 
         fixture = TestBed.createComponent(Footer);

@@ -3,22 +3,19 @@
         <ng-container *ngTemplateOutlet="HalftoneBackdrop"></ng-container>
     </div>
     <div class="summary__content">
-        <div class="summary__role">Frontend developer · Angular<span class="cursor"></span></div>
-        <h1>Juan<br />Betancur<span class="accent">.</span></h1>
+        <div class="summary__role">{{ 'summary.role' | translate }}<span class="cursor"></span></div>
+        <h1>{{ 'summary.name' | translate }}<br />{{ 'summary.lastname' | translate }}<span class="accent">.</span></h1>
         <p class="summary__role-description">
-            I build web interfaces with <span class="summary__role-description__pill">Angular</span> and obsess over the last
-            5% of polish.
+            {{ 'summary.description' | translate }}
         </p>
         <p class="summary__intro">
-            Hi — I'm Juan. I make interfaces that are careful with state, kind to the user, and
-            pleasant to maintain six months later. Lately that means a lot of Angular signals,
-            accessibility, and the small motion details nobody else seems to notice.
-            <a href="#contact">Say hi →</a>
+            {{ 'summary.intro' | translate }}
+            <a href="#contact">{{ 'summary.contact' | translate }}</a>
         </p>
         <div class="summary__meta-row">
-            <span><span class="summary__meta-row__dot-live"></span>Available for new work</span>
-            <span>Based in Medellín, Colombia</span>
-            <span>Last updated 2026</span>
+            <span><span class="summary__meta-row__dot-live"></span>{{ 'summary.meta-row.available' | translate }}</span>
+            <span>{{ 'summary.meta-row.location' | translate }}</span>
+            <span>{{ 'summary.meta-row.updated' | translate }}</span>
         </div>
     </div>
 </section>

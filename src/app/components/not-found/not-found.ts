@@ -1,10 +1,11 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
     selector: 'jb-not-found',
-    imports: [ NgTemplateOutlet ],
+    imports: [ NgTemplateOutlet, TranslatePipe ],
     templateUrl: './not-found.html',
     styleUrl: './not-found.scss',
 })

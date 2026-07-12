@@ -1,6 +1,6 @@
 <section class="projects page-sections" id="work">
     <div class="projects__inner">
-        <div class="projects__eyebrow">Selected work</div>
+        <div class="projects__eyebrow">{{ 'projects.selected-work' | translate }}</div>
         <div class="projects__list">
 
             @for (project of projects; track project.num) {
@@ -52,9 +52,9 @@
                 }
             </div>
             <div class="projects-modal__actions">
-                <a href="#" class="projects-modal__actions__link">Live ↗</a>
-                <a href="#" class="projects-modal__actions__link">Source ↗</a>
-                <button class="projects-modal__actions__close" (click)="closeModal()">Close x</button>
+                <a href="#" class="projects-modal__actions__link">{{ 'projects.modal.live' | translate }}</a>
+                <a href="#" class="projects-modal__actions__link">{{ 'projects.modal.source' | translate }}</a>
+                <button class="projects-modal__actions__close" (click)="closeModal()">{{ 'projects.modal.close' | translate }}</button>
             </div>
         </div>
     </div>

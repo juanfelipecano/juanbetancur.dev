@@ -1,0 +1,130 @@
+import { Provider } from '@angular/core';
+import { provideTranslateLoader, provideTranslateService, TranslateLoader, TranslationObject } from '@ngx-translate/core';
+import { of } from 'rxjs';
+
+const TRANSLATIONS: TranslationObject = {
+    header: {
+        logo: {
+            brand: 'jb',
+            name: 'juanbetancur',
+            accent: '.dev',
+        },
+        menu: {
+            open: 'menu',
+            close: 'close x',
+        },
+        links: {
+            work: 'Work',
+            about: 'About',
+            contact: 'Contact',
+        },
+        'external-links': {
+            email: 'email ↗',
+            github: 'github ↗',
+        },
+        language: {
+            'switch-to-es': 'Switch to Spanish',
+            'switch-to-en': 'Switch to English',
+        },
+    },
+    summary: {
+        role: 'Frontend developer · Angular',
+        name: 'Juan',
+        lastname: 'Betancur',
+        description: 'I build web interfaces with Angular and obsess over the last 5% of polish.',
+        intro: "Hi — I'm Juan. I make interfaces that are careful with state, kind to the user, and pleasant to maintain six months later. Lately that means a lot of Angular signals, accessibility, and the small motion details nobody else seems to notice.",
+        contact: 'Say hi →',
+        'meta-row': {
+            available: 'Available for new work',
+            location: 'Based in Medellín, Colombia',
+            updated: 'Last updated 2026',
+        },
+    },
+    projects: {
+        'selected-work': 'Selected work',
+        modal: {
+            live: 'Live ↗',
+            source: 'Source ↗',
+            close: 'close x',
+        },
+    },
+    about: {
+        eyebrow: 'About',
+        content: {
+            first: "Hi — I'm Juan. I'm a frontend developer working primarily with Angular. I care about the parts of an interface most people don't notice: how a focus ring lands, how a list reorders, whether a loading state has the right rhythm.",
+            second: 'Most of my recent work has been around component architecture, signals, and pulling design systems into shape. I like writing code that the next person can read without me hovering over their shoulder.',
+            third: "When I'm not at the keyboard I'm probably reading, swimming, playing videogames or whaching a movie. If you want to work together or just say hi, my email is below.",
+        },
+        stack: 'Stack',
+        learning: 'Currently learning',
+    },
+    contact: {
+        eyebrow: 'Get in touch',
+        title: "Let's talk.",
+        description: "I'm currently open to new frontend work — full-time, contract, or the occasional side project. The quickest way to reach me is email.",
+        socials: {
+            github: 'github',
+            linkedin: 'linkedin',
+            readcv: 'read.cv',
+        },
+        form: {
+            name: {
+                label: 'Name',
+                placeholder: 'Your name',
+            },
+            email: {
+                label: 'Email',
+                placeholder: 'you@example.com',
+            },
+            message: {
+                label: 'Message',
+                placeholder: 'What are we building?',
+            },
+            actions: {
+                sent: '✓ Sent',
+                send: 'Send →',
+            },
+        },
+    },
+    'not-found': {
+        'sr-title': '404 — Page not found',
+        'error-line': '// error: dot not found in matrix',
+        description: 'One dot slipped out of the pattern. The page it pointed to is gone — but the rest of the site is very much still here.',
+        'home-link': 'Back to home',
+    },
+    footer: {
+        colophon: {
+            name: 'juanbetancur.dev',
+            description: '— frontend developer, Angular specialist, careful with details. Built by hand, set in JetBrains Mono & Fraunces.',
+        },
+        site: {
+            title: 'Site',
+            work: 'Work',
+            about: 'About',
+            contact: 'Contact',
+        },
+        elsewhere: {
+            title: 'Elsewhere',
+            github: 'github ↗',
+            linkedin: 'linkedin ↗',
+        },
+        bottom: {
+            copyright: '© 2026 Juan Betancur',
+            version: 'v0.1 · last shipped 2026',
+        },
+    },
+};
+
+class TestTranslateLoader extends TranslateLoader {
+    public override getTranslation() {
+        return of(TRANSLATIONS);
+    }
+}
+
+export function provideTranslateTesting(): Provider[] {
+    return provideTranslateService({
+        loader: provideTranslateLoader(TestTranslateLoader),
+        lang: 'en',
+        fallbackLang: 'en',
+    });
+}
