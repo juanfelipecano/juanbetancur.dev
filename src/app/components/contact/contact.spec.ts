@@ -1,16 +1,26 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { Contact } from './contact';
 import { provideTranslateTesting } from '../../testing/translate-testing.providers';
+import { ContactMe } from '../../services';
 
 describe('Contact', () => {
     let component: Contact;
     let fixture: ComponentFixture<Contact>;
+    let contactMeMock: Partial<ContactMe>;
+
+    beforeEach(() => {
+        contactMeMock = {
+            perform: vi.fn().mockResolvedValue(true),
+        };
+    });
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [Contact],
-            providers: [provideTranslateTesting()],
+            providers: [
+                provideTranslateTesting(),
+                { provide: ContactMe, useValue: contactMeMock },
+            ],
         }).compileComponents();
 
         fixture = TestBed.createComponent(Contact);
@@ -22,14 +32,39 @@ describe('Contact', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should not send when the form is invalid', () => {
-        component.submit();
+    it('should not send when the form is invalid', async () => {
+        await component.submit();
 
-        expect(component.sent()).toBe(false);
+        expect(component.isSending()).toBe(false);
+        expect(contactMeMock.perform).not.toHaveBeenCalled();
     });
 
-    it('should send and then reset the form after a delay when valid', () => {
-        vi.useFakeTimers();
+    it('should send and then reset the form when valid', async () => {
+        component.form.setValue({
+            name: 'Jane Doe',
+            email: 'jane@example.com',
+            message: 'Hello there',
+        });
+
+        const submitPromise = component.submit();
+
+        expect(component.isSending()).toBe(true);
+        expect(component.form.value.name).toBe('Jane Doe');
+
+        await submitPromise;
+
+        expect(contactMeMock.perform).toHaveBeenCalledWith({
+            name: 'Jane Doe',
+            email: 'jane@example.com',
+            message: 'Hello there',
+        });
+        expect(component.isSending()).toBe(false);
+        expect(component.isSuccess()).toBe(true);
+        expect(component.form.value.name).toBe('');
+    });
+
+    it('should not reset the form and mark as unsuccessful when the service call fails', async () => {
+        (contactMeMock.perform as ReturnType<typeof vi.fn>).mockResolvedValue(false);
 
         component.form.setValue({
             name: 'Jane Doe',
@@ -37,17 +72,11 @@ describe('Contact', () => {
             message: 'Hello there',
         });
 
-        component.submit();
+        await component.submit();
 
-        expect(component.sent()).toBe(true);
+        expect(component.isSending()).toBe(false);
+        expect(component.isSuccess()).toBe(false);
         expect(component.form.value.name).toBe('Jane Doe');
-
-        vi.advanceTimersByTime(2200);
-
-        expect(component.sent()).toBe(false);
-        expect(component.form.value.name).toBe('');
-
-        vi.useRealTimers();
     });
 
     it('should disable the submit button while invalid and show the sent state', async () => {
@@ -68,11 +97,11 @@ describe('Contact', () => {
 
         expect(button?.disabled).toBe(false);
 
-        component.sent.set(true);
+        component.isSending.set(true);
         fixture.detectChanges();
         await fixture.whenStable();
 
         expect(button?.disabled).toBe(true);
-        expect(button?.textContent).toContain('Sent');
+        expect(button?.textContent).toContain('Sending');
     });
 });

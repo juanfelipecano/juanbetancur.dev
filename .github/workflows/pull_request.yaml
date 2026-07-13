@@ -47,7 +47,7 @@ jobs:
 
       # - Compile production-ready code bundles
       - name: Compile Production Build
-        run: npm run build -- --configuration production
+        run: npm run build -- --configuration development
 
       # - Install Firebase Tools CLI globally on the runner
       - name: Install Firebase CLI

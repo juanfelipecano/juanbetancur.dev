@@ -83,6 +83,7 @@ const TRANSLATIONS: TranslationObject = {
             actions: {
                 sent: '✓ Sent',
                 send: 'Send →',
+                sending: 'Sending →',
             },
         },
     },
