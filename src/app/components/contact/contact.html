@@ -31,6 +31,7 @@
                     </a>
                 </div>
             </div>
+
             <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()">
                 <div class="contact__form-group">
                     <label for="name">{{ 'contact.form.name.label' | translate }}</label>
@@ -45,6 +46,7 @@
                         <p class="contact__form-error" id="name-error">{{ 'contact.form.name.error' | translate }}</p>
                     }
                 </div>
+
                 <div class="contact__form-group">
                     <label for="email">{{ 'contact.form.email.label' | translate }}</label>
                     <input
@@ -58,6 +60,7 @@
                         <p class="contact__form-error" id="email-error">{{ 'contact.form.email.error' | translate }}</p>
                     }
                 </div>
+
                 <div class="contact__form-group">
                     <label for="message">{{ 'contact.form.message.label' | translate }}</label>
                     <textarea
@@ -72,9 +75,11 @@
                 </div>
 
                 <div class="contact__form__actions">
-                    <button class="btn" type="submit" [disabled]="form.invalid || sent()">
-                        @if (sent()) {
+                    <button class="btn" type="submit" [class.btn--loading]="isSending()" [disabled]="form.invalid || isSending()">
+                        @if (isSuccess()) {
                             {{ 'contact.form.actions.sent' | translate }}
+                        } @else if(isSending()) {
+                            {{ 'contact.form.actions.sending' | translate }}
                         } @else {
                             {{ 'contact.form.actions.send' | translate }}
                         }
@@ -82,7 +87,7 @@
                 </div>
 
                 <p class="contact__form-status" role="status" aria-live="polite">
-                    @if (sent()) {
+                    @if (isSuccess()) {
                         {{ 'contact.form.success' | translate }}
                     }
                 </p>

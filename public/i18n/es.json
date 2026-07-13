@@ -85,7 +85,8 @@
             },
             "actions": {
                 "sent": "✓ Enviado",
-                "send": "Enviar →"
+                "send": "Enviar →",
+                "sending": "Enviando →"
             },
             "success": "Gracias — tu mensaje ha sido enviado."
         }
